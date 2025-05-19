@@ -42,6 +42,17 @@ warta-online-pub/
 
 ## Cara Penggunaan
 
+### Mulai dengan GitHub Repository
+
+Cara termudah untuk memulai adalah dengan mengkloning repositori ini melalui terminal atau command line:
+
+```
+git clone https://github.com/username/warta-online-pub.git
+cd warta-online-pub
+```
+
+Atau, Anda dapat mendownload sebagai ZIP dan mengekstraknya ke folder pilihan Anda.
+
 ### Membuat Warta Baru
 
 1. **Buat file markdown baru** dengan format nama `YYYYMMDD.md` (tahun, bulan, tanggal) di folder `markdown/`. Misalnya: `20250525.md` untuk warta tanggal 25 Mei 2025.
