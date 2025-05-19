@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warta Online GEREJA ABC</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // Make toggleCode function accessible globally
+        window.toggleCode = function(id) {
+            const contentElement = document.getElementById(`${id}-content`);
+            const buttonElement = document.querySelector(`[onclick="toggleCode('${id}')"]`);
+            
+            if (contentElement.classList.contains('code-expanded')) {
+                contentElement.classList.replace('code-expanded', 'code-collapsed');
+                buttonElement.classList.add('collapsed');
+                buttonElement.textContent = 'Tampilkan teks lirik / ayat';
+            } else {
+                contentElement.classList.replace('code-collapsed', 'code-expanded');
+                buttonElement.classList.remove('collapsed');
+                buttonElement.textContent = 'Sembunyikan teks lirik / ayat';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Warta Online Gereja ABC</h1>
+        <p>Tata Ibadah dan Pengumuman Mingguan</p>
+    </header>
+    
+    <main>
+        <div id="bulletin-list">
+            <h2>Daftar Warta Ibadah</h2>
+            <ul id="bulletins"></ul>
+        </div>
+        
+        <div id="bulletin-content" style="display: none;">
+            <button id="back-button" onclick="showBulletinList()">Kembali ke Daftar</button>
+            <div id="content"></div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; Martin Manullang 2025, Indonesia</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    font-size: 16px; /* Base font size */
+}
+
+header {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+main {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+    font-size: 0.9em;
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #2980b9;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Navigation list items */
+#bulletins li {
+    margin-bottom: 10px;
+}
+
+#bulletins li a {
+    display: block;
+    padding: 10px;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+#bulletins li a:hover {
+    background-color: #d6eaf8;
+}
+
+/* Content list styles */
+#content ol {
+    list-style: decimal;
+    padding-left: 40px;
+    margin: 15px 0;
+}
+
+#content ol li {
+    margin-bottom: 10px;
+    padding-left: 10px;
+    display: list-item;
+}
+
+/* Fixing the alignment for numbered lists */
+#content ol li p {
+    display: inline-block;
+    margin: 0;
+}
+
+/* Center Heading 1 */
+#content h1 {
+    text-align: center;
+    position: relative;
+    padding-top: 30px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-size: 1.6em; /* Slightly bigger than before */
+}
+
+/* Section separator before Heading 1 */
+#content h1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #3498db, transparent);
+}
+
+/* First h1 should not have a separator */
+#content h1:first-of-type {
+    margin-top: 10px;
+}
+
+#content h1:first-of-type::before {
+    display: none;
+}
+
+/* Heading 2 - more space before, less after */
+#content h2 {
+    margin-top: 25px;      /* More space before */
+    margin-bottom: 10px;   /* Less space after */
+    color: #2980b9;
+}
+
+/* Heading 3 - make smaller */
+#content h3 {
+    font-size: 1em;        /* Reduced from 1.1em to 1em */
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+/* Style for plain text blocks (code blocks) */
+#content pre {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 0 0 5px 5px; /* Rounded only bottom corners */
+    margin: 0 0 15px 0; /* Remove top margin, keep bottom margin */
+    overflow: auto;
+    border: 1px solid #e0e0e0;
+    font-family: inherit; /* Use regular font, not monospace */
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border-left: 4px solid #3498db;
+}
+
+#content pre code {
+    font-family: inherit;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    display: block;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Update collapsible styles */
+.code-toggle-btn {
+    display: block !important;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-size: 0.9em;
+    position: relative;
+    margin-top: 15px; /* Add some space above buttons */
+}
+
+.code-toggle-btn:hover {
+    background-color: #3498db;
+}
+
+.code-toggle-btn::after {
+    content: "▼";
+    position: absolute;
+    right: 10px;
+    transition: transform 0.3s;
+}
+
+.code-toggle-btn.collapsed::after {
+    transform: rotate(-90deg);
+}
+
+.code-collapsed {
+    display: none !important;
+}
+
+.code-expanded {
+    display: block !important;
+}
+
+/* Back button styling */
+#back-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#back-button:hover {
+    background-color: #2980b9;
+}
+
+/* Date display styling */
+.date-display {
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    padding: 10px 0;
+    border-bottom: 1px solid #eaeaea;
+}
+
+/* Table styling */
+#content table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 15px 0;
+    font-size: 0.9em; /* Smaller font size for tables */
+}
+
+#content table th,
+#content table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#content table th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+}
+
+#content table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#content table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Caption or header for tables */
+#content table caption {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #2980b9;
+    text-align: left;
+    font-size: 1em;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+        font-size: 15px; /* Slightly smaller base font for mobile */
+    }
+    
+    header {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 1.6em;
+    }
+    
+    main {
+        padding: 15px;
+    }
+    
+    /* Make tables more mobile-friendly */
+    #content table {
+        font-size: 0.85em; /* Even smaller font for tables on mobile */
+    }
+    
+    #content table th,
+    #content table td {
+        padding: 6px;
+    }
+    
+    /* Adjust headings for mobile */
+    #content h1 {
+        font-size: 1.4em;
+    }
+    
+    #content h2 {
+        font-size: 1.2em;
+    }
+    
+    #content h3 {
+        font-size: 0.95em; /* Further reduced size for h3 on mobile */
+    }
+    
+    .date-display {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 8px;
+        font-size: 14px; /* Even smaller for very small screens */
+    }
+    
+    header h1 {
+        font-size: 1.4em;
+    }
+    
+    main {
+        padding: 12px;
+    }
+    
+    /* Make tables scroll horizontally if needed */
+    #content table {
+        font-size: 0.8em; /* Smallest font for tables on small mobile */
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    #content h3 {
+        font-size: 0.9em; /* Very small h3 for mobile */
+    }
+    
+    .date-display {
+        font-size: 1.3em;
+    }
+}
