@@ -1,3 +1,30 @@
+:root {
+    /* Colors inspired by clean, modern UIs (like Gemini) */
+    --primary-color: #1a73e8; /* A vibrant blue for accents, like buttons and links */
+    --primary-dark-color: #155cb7; /* Darker shade for hover states */
+    --secondary-color: #e8f0fe; /* Light blue for subtle backgrounds (e.g., list items) */
+    --text-color: #202124; /* Dark gray for main text for good contrast */
+    --light-text-color: #5f6368; /* Lighter gray for secondary text, footer */
+    --background-color: #f8f9fa; /* Very light gray for overall background */
+    --card-background-color: #ffffff; /* White for content cards */
+    --border-color: #dadce0; /* Light gray for subtle borders */
+    --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.05); /* Softer shadows */
+    --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08);
+
+    /* Spacing units */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* Border radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+}
+
+/* Reset and base styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,271 +32,527 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    font-size: 16px;
+    padding: var(--spacing-lg); /* Generous padding around the content */
+}
+
+/* Page layout */
+.container { /* Add this class to your main content wrapper in index.html */
     max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f5f5f5;
-    font-size: 16px; /* Base font size */
+    margin: var(--spacing-lg) auto; /* Centers the content with top/bottom margin */
+    background-color: var(--card-background-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-medium); /* Slightly more prominent shadow for the main container */
+    overflow: hidden; /* Ensures rounded corners are respected */
+}
+
+/* New style for the bulletin detail header within content */
+.bulletin-detail-header {
+    text-align: center;
+    font-size: 1.1em; /* Slightly larger than body text for emphasis */
+    color: var(--light-text-color); /* Faded color */
+    margin-bottom: var(--spacing-xl); /* Generous space below it */
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color); /* Subtle separator */
 }
 
 header {
-    background-color: #3498db;
+    background-color: var(--primary-color);
     color: white;
-    padding: 20px;
+    padding: var(--spacing-xl);
     text-align: center;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0; /* Top corners rounded */
+    margin-bottom: var(--spacing-lg); /* Space between header and main content */
+    font-size: 1.1em; /* Slightly larger text in header */
 }
 
 header h1 {
-    margin-bottom: 10px;
+    margin-bottom: var(--spacing-sm);
+    font-size: 2.2em; /* Larger heading */
+    font-weight: 500; /* Medium weight */
 }
 
+header p {
+    font-size: 1.1em;
+    opacity: 0.9; /* Slightly faded subtitle */
+}
+
+/* Navigation (if added) */
+header nav {
+    margin-top: var(--spacing-md);
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Arrange links horizontally */
+    justify-content: center; /* Center them */
+    gap: var(--spacing-lg); /* Space between nav items */
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: var(--primary-dark-color);
+}
+
+/* Main content area */
 main {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-lg) var(--spacing-xl); /* Consistent padding */
 }
 
 footer {
     text-align: center;
-    margin-top: 20px;
-    color: #666;
-    font-size: 0.9em;
+    padding: var(--spacing-md) var(--spacing-xl);
+    color: var(--light-text-color);
+    font-size: 0.85em;
+    background-color: var(--background-color); /* Matches body background */
+    border-top: 1px solid var(--border-color); /* Subtle separator */
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md); /* Bottom corners rounded */
+    margin-top: var(--spacing-lg); /* Space above footer */
 }
 
-h2 {
-    margin-bottom: 15px;
-    color: #2980b9;
+/* Bulletin List Specifics */
+#bulletin-list {
+    padding: var(--spacing-md) 0;
 }
 
-ul {
-    list-style: none;
+#bulletin-list h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.8em;
+    font-weight: 500;
 }
 
-/* Navigation list items */
+#search-input {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-md);
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#search-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2); /* Focus ring like Google */
+}
+
 #bulletins li {
-    margin-bottom: 10px;
+    margin-bottom: var(--spacing-sm);
 }
 
 #bulletins li a {
-    display: block;
-    padding: 10px;
-    background-color: #ecf0f1;
-    color: #2c3e50;
+    display: flex; /* Use flexbox for better alignment */
+    align-items: center;
+    padding: var(--spacing-md);
+    background-color: var(--secondary-color); /* Light blue background */
+    color: var(--text-color);
     text-decoration: none;
-    border-radius: 3px;
-    transition: background-color 0.3s;
+    border-radius: var(--border-radius-md); /* More rounded corners */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: var(--shadow-light); /* Subtle shadow for list items */
 }
 
 #bulletins li a:hover {
-    background-color: #d6eaf8;
+    background-color: #d2e3fc; /* Slightly darker light blue */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+    box-shadow: var(--shadow-medium); /* Enhanced shadow on hover */
 }
 
-/* Content list styles */
-#content ol {
-    list-style: decimal;
-    padding-left: 40px;
-    margin: 15px 0;
-}
-
-#content ol li {
-    margin-bottom: 10px;
-    padding-left: 10px;
-    display: list-item;
-}
-
-/* Fixing the alignment for numbered lists */
-#content ol li p {
-    display: inline-block;
-    margin: 0;
-}
-
-/* Center Heading 1 */
-#content h1 {
-    text-align: center;
-    position: relative;
-    padding-top: 30px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    color: #2c3e50;
-    font-size: 1.6em; /* Slightly bigger than before */
-}
-
-/* Section separator before Heading 1 */
-#content h1::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, transparent, #3498db, transparent);
-}
-
-/* First h1 should not have a separator */
-#content h1:first-of-type {
-    margin-top: 10px;
-}
-
-#content h1:first-of-type::before {
-    display: none;
-}
-
-/* Heading 2 - more space before, less after */
-#content h2 {
-    margin-top: 25px;      /* More space before */
-    margin-bottom: 10px;   /* Less space after */
-    color: #2980b9;
-}
-
-/* Heading 3 - make smaller */
-#content h3 {
-    font-size: 1em;        /* Reduced from 1.1em to 1em */
-    margin-top: 15px;
-    margin-bottom: 10px;
-    color: #34495e;
-}
-
-/* Style for plain text blocks (code blocks) */
-#content pre {
-    background-color: #f8f8f8;
-    padding: 15px;
-    border-radius: 0 0 5px 5px; /* Rounded only bottom corners */
-    margin: 0 0 15px 0; /* Remove top margin, keep bottom margin */
-    overflow: auto;
-    border: 1px solid #e0e0e0;
-    font-family: inherit; /* Use regular font, not monospace */
-    position: relative;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    border-left: 4px solid #3498db;
-}
-
-#content pre code {
-    font-family: inherit;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    display: block;
-    color: #333;
-    line-height: 1.5;
-}
-
-/* Update collapsible styles */
-.code-toggle-btn {
-    display: block !important;
-    background-color: #2980b9;
-    color: white;
-    border: none;
-    padding: 8px 10px;
-    border-radius: 5px 5px 0 0;
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
-    font-size: 0.9em;
-    position: relative;
-    margin-top: 15px; /* Add some space above buttons */
-}
-
-.code-toggle-btn:hover {
-    background-color: #3498db;
-}
-
-.code-toggle-btn::after {
-    content: "▼";
-    position: absolute;
-    right: 10px;
-    transition: transform 0.3s;
-}
-
-.code-toggle-btn.collapsed::after {
-    transform: rotate(-90deg);
-}
-
-.code-collapsed {
-    display: none !important;
-}
-
-.code-expanded {
-    display: block !important;
+/* Content display area */
+#bulletin-content {
+    padding-top: var(--spacing-md);
 }
 
 /* Back button styling */
 #back-button {
-    background-color: #3498db;
+    background-color: var(--light-text-color); /* More subtle back button */
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 3px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-lg);
+    font-size: 0.95em;
+    transition: background-color 0.3s ease;
+    display: inline-flex; /* Align text and icon if added */
+    align-items: center;
+    gap: var(--spacing-xs);
 }
 
 #back-button:hover {
-    background-color: #2980b9;
+    background-color: var(--text-color);
 }
 
-/* Date display styling */
-.date-display {
-    font-weight: bold;
-    color: #2c3e50;
+/* Markdown content styles */
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
+    color: var(--text-color);
+    font-weight: 500;
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+}
+
+#content h1 {
     text-align: center;
-    margin-bottom: 25px;
-    font-size: 1.8em;
-    padding: 10px 0;
-    border-bottom: 1px solid #eaeaea;
+    font-size: 2em;
+    margin-top: var(--spacing-lg); /* Adjust top margin for first h1 */
+    margin-bottom: var(--spacing-xl);
+}
+
+#content h2 {
+    font-size: 1.6em;
+    border-bottom: 1px solid var(--border-color); /* Subtle separator */
+    padding-bottom: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+#content h3 {
+    font-size: 1.2em;
+    font-weight: 600; /* Slightly bolder for sub-sections */
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+#content p {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.7; /* Increased line height for readability */
+}
+
+#content ul, #content ol {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-xl); /* Deeper indentation for lists */
+}
+
+#content li {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+}
+
+/* Custom styles for the top introductory div (centered text) */
+#content div[align="center"] {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-md);
+    background-color: var(--secondary-color); /* A light background for this intro block */
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    font-style: italic;
+    color: var(--light-text-color);
+}
+
+#content div[align="center"] strong {
+    color: var(--primary-color); /* Make theme stand out */
+    font-size: 1.2em;
+    display: block; /* New line for theme */
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Wrapper for collapsible song lyrics and other code blocks */
+.collapsible-song-lyrics {
+    margin-bottom: var(--spacing-md); /* Space below each collapsible block */
+}
+
+/* Wrapper for collapsible Bible Text blocks */
+.collapsible-bible-text {
+    margin-bottom: var(--spacing-md); /* Space below each Bible block */
+}
+
+/* Styles for the collapsible button */
+.code-toggle-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0; /* Only top corners rounded */
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-size: 0.95em;
+    font-weight: 500;
+    margin-top: var(--spacing-md); /* Space above the button */
+    transition: background-color 0.3s ease;
+}
+
+.code-toggle-btn:hover {
+    background-color: var(--primary-dark-color);
+}
+
+.code-toggle-btn.collapsed {
+    background-color: var(--light-text-color); /* Different color when collapsed */
+    border-radius: var(--border-radius-sm); /* Fully rounded when collapsed for a 'closed' look */
+}
+
+.code-toggle-btn.collapsed:hover {
+    background-color: var(--text-color);
+}
+
+.code-toggle-btn::after {
+    content: "▼"; /* Down arrow */
+    font-size: 0.8em; 
+    margin-left: var(--spacing-sm);
+    transition: transform 0.3s ease;
+}
+
+.code-toggle-btn:not(.collapsed)::after { 
+    transform: rotate(180deg); /* Up arrow when expanded */
+}
+
+/* Styles for the collapsible content wrapper */
+.code-collapsed {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0; 
+    visibility: hidden; 
+}
+
+.code-expanded {
+    max-height: 5000px; /* Large enough for content */
+    transition: max-height 0.3s ease-in, opacity 0.3s ease-in var(--spacing-xs); 
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Styles for the pre element (code block/lyrics inside collapsible sections) */
+#content pre {
+    background-color: #f3f6f9; 
+    padding: var(--spacing-md);
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md); 
+    margin: 0; 
+    overflow: auto;
+    border: 1px solid var(--border-color);
+    border-top: none; 
+    font-family: inherit; /* Penting: gunakan font dari body */
+    box-shadow: var(--shadow-light);
+    line-height: 1.5; /* Pastikan ada line-height yang wajar */
+}
+
+#content pre code {
+    font-family: inherit; /* Penting: pastikan ini diatur untuk code juga */
+    white-space: pre-wrap; /* Ini menjaga spasi dan line break asli, tapi memungkinkan wrap */
+    word-wrap: break-word; /* Ini memungkinkan kata-kata panjang untuk pecah */
+    display: block; /* Agar setiap baris kode dianggap blok */
+    color: var(--text-color);
+    margin: 0; /* Pastikan tidak ada margin tambahan di dalam code */
+    padding: 0; /* Pastikan tidak ada padding tambahan di dalam code */
+}
+
+/* Tambahan: Pastikan tidak ada margin pada p tags di dalam pre */
+#content pre p {
+    margin-bottom: 0;
+    margin-top: 0;
+    line-height: inherit; /* Inherit line-height from pre/code */
+}
+
+/* Jika ada paragraf di dalam list item, pastikan margin-nya 0 */
+#content li p {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+/* Date display for current bulletin */
+.date-display {
+    font-weight: 600; /* Semibold */
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    font-size: 1.6em;
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-color);
+    text-transform: capitalize; /* Ensure first letter of weekday/month is capitalized */
+}
+
+/* Image styling */
+#content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: var(--spacing-xl) auto; /* Generous vertical margin */
+    border-radius: var(--border-radius-md); /* Slightly rounded corners */
+    box-shadow: var(--shadow-light); /* Subtle shadow */
 }
 
 /* Table styling */
 #content table {
     border-collapse: collapse;
     width: 100%;
-    margin: 15px 0;
-    font-size: 0.9em; /* Smaller font size for tables */
+    margin: var(--spacing-lg) 0;
+    font-size: 0.9em;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden; /* Ensures rounded corners on tables */
 }
 
 #content table th,
 #content table td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-sm) var(--spacing-md);
     text-align: left;
 }
 
 #content table th {
-    background-color: #f2f2f2;
-    color: #333;
-    font-weight: bold;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-weight: 600;
 }
 
 #content table tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #fcfdfe; /* Slightly different stripe */
 }
 
 #content table tr:hover {
-    background-color: #f1f1f1;
+    background-color: #f0f8ff; /* Gentle hover effect */
 }
 
-/* Caption or header for tables */
 #content table caption {
     font-weight: bold;
-    margin-bottom: 10px;
-    color: #2980b9;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-color);
     text-align: left;
     font-size: 1em;
 }
 
-/* Media queries for responsive design */
+/* Wrapper for collapsible song lyrics */
+.collapsible-song-lyrics {
+    margin-bottom: var(--spacing-md); /* Space below each song block */
+}
+
+/* Original .code-toggle-btn and #content pre styles are mostly fine,
+   but ensure .code-toggle-btn has margin-top for spacing and pre has 0 margin-top.
+   The .collapsible-song-lyrics wrapper handles the overall block margin.
+*/
+
+/* Example adjustment for better visual connection between button and pre */
+.collapsible-song-lyrics .code-toggle-btn {
+    margin-top: var(--spacing-md); /* Space above the button */
+    border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0; /* Only top corners rounded */
+}
+
+.collapsible-song-lyrics pre {
+    border-top: none; /* No top border to connect it visually to the button */
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md); /* Only bottom corners rounded */
+    margin-top: 0; /* Remove top margin */
+}
+
+/* You might want to adjust the `.code-toggle-btn.collapsed` background for clarity.
+   It's currently `var(--light-text-color)`.
+*/
+
+/* --- NEW: Styling untuk konten teks Alkitab --- */
+/* Target div yang berisi semua teks Alkitab (yaitu yang hasil `parsedBibleContent` masuk) */
+.bible-text-content > div {
+    background-color: #f0f7ff; /* Warna latar belakang sedikit berbeda, misal biru muda */
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+    box-shadow: var(--shadow-light);
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Target div untuk setiap ayat di dalam teks Alkitab */
+.bible-text-content > div > div {
+    margin-bottom: var(--spacing-xs); /* Spasi antar ayat sedikit lebih kecil dari bait lagu */
+    text-indent: -1.5em; /* Indentasi negatif untuk menjorokkan teks setelah nomor ayat */
+    padding-left: 1.5em; /* Padding untuk mengimbangi indentasi negatif */
+}
+
+.bible-text-content > div > div:last-child {
+    margin-bottom: 0;
+}
+
+.bible-text-content > div > div b {
+    /* Gaya untuk nomor ayat Alkitab */
+    margin-right: 0.5em; /* Spasi setelah nomor ayat */
+    color: var(--primary-color); /* Warna untuk nomor ayat */
+}
+
+
+/* Responsive Design */
 @media (max-width: 768px) {
     body {
-        padding: 10px;
-        font-size: 15px; /* Slightly smaller base font for mobile */
+        padding: var(--spacing-md);
+        font-size: 15px;
     }
     
+    .container {
+        margin: var(--spacing-md) auto;
+    }
+
     header {
-        padding: 15px;
+        padding: var(--spacing-lg);
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+    
+    main {
+        padding: var(--spacing-lg);
+    }
+    
+    #bulletins li a {
+        padding: var(--spacing-sm);
+    }
+
+    /* Adjust headings for mobile */
+    #content h1 {
+        font-size: 1.8em;
+    }
+    
+    #content h2 {
+        font-size: 1.4em;
+    }
+    
+    #content h3 {
+        font-size: 1.1em;
+    }
+    
+    .date-display {
+        font-size: 1.5em;
+    }
+
+    #content table {
+        font-size: 0.85em;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap; /* Prevent wrapping in cells */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: var(--spacing-sm);
+        font-size: 14px;
+    }
+    
+    .container {
+        margin: var(--spacing-sm) auto;
+    }
+
+    header {
+        padding: var(--spacing-md);
     }
     
     header h1 {
@@ -277,64 +560,32 @@ ul {
     }
     
     main {
-        padding: 15px;
+        padding: var(--spacing-md);
+    }
+
+    #search-input {
+        padding: var(--spacing-sm);
     }
     
-    /* Make tables more mobile-friendly */
-    #content table {
-        font-size: 0.85em; /* Even smaller font for tables on mobile */
+    #bulletins li a {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.9em;
     }
-    
-    #content table th,
-    #content table td {
-        padding: 6px;
-    }
-    
-    /* Adjust headings for mobile */
+
+    /* Further adjust headings for smaller screens */
     #content h1 {
-        font-size: 1.4em;
+        font-size: 1.6em;
     }
     
     #content h2 {
-        font-size: 1.2em;
-    }
-    
-    #content h3 {
-        font-size: 0.95em; /* Further reduced size for h3 on mobile */
-    }
-    
-    .date-display {
-        font-size: 1.4em;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        padding: 8px;
-        font-size: 14px; /* Even smaller for very small screens */
-    }
-    
-    header h1 {
-        font-size: 1.4em;
-    }
-    
-    main {
-        padding: 12px;
-    }
-    
-    /* Make tables scroll horizontally if needed */
-    #content table {
-        font-size: 0.8em; /* Smallest font for tables on small mobile */
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-    
-    #content h3 {
-        font-size: 0.9em; /* Very small h3 for mobile */
-    }
-    
-    .date-display {
         font-size: 1.3em;
+    }
+    
+    #content h3 {
+        font-size: 1em;
+    }
+    
+    .date-display {
+        font-size: 1.4em;
     }
 }
