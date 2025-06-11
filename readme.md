@@ -67,12 +67,13 @@ Atau, Anda dapat mendownload sebagai ZIP dan mengekstraknya ke folder pilihan An
    - `20250525_Enggano_Pagi.md` untuk warta tanggal 25 Mei 2025 di gereja Enggano untuk sesi Pagi.
    - `20250525_Melur_Sore.md` untuk warta tanggal 25 Mei 2025 di gereja Melur untuk sesi Sore.
    - `20250525_PKP_1800.md` untuk warta tanggal 25 Mei 2025 di kegiatan PKP untuk jam 18:00.<br>
+```
    penamaan Enggano, Melur, Pagi, Sore, PKP, PKB, PKW, DLL bisa dilihat di js/app.js, di line 332 dan 528:<br>
        const ibadahMingguMatch = filename.match(/^(\d{4})(\d{2})(\d{2})_(Enggano|Melur)_(Pagi|Sore)\.md$/);<br>
        const kebaktianKelompokMatch = filename.match(/^(\d{4})(\d{2})(\d{2})_([a-zA-Z0-9]+)_(\d{4})\.md$/);<br>
    untuk custom order warta/tata ibadah di index html bisa diatur di js/app.js, line 301:<br>
        const order = ['Enggano_Pagi', 'Enggano_Sore', 'Melur_Pagi', 'Melur_Sore', 'PKP', 'Kelompok']; 
-
+```
 2. **Salin template** dari file `20250518_Enggano_Pagi.md` yang sudah ada dan modifikasi sesuai kebutuhan.
 
 3. **Isi bagian-bagian warta** dengan informasi yang sesuai:
