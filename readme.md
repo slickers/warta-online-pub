@@ -178,4 +178,4 @@ Dibuat oleh Martin Manullang. Bebas digunakan dan dimodifikasi untuk keperluan g
 Fork oleh Yopianus Linga / @slickers untuk penambahan fitur dan tampilan.
 
 ![Bible Preview](bible.png)
-![Codes Preview](code.png)
+![Codes Preview](codes.png)
