@@ -105,8 +105,7 @@ File markdown mendukung format berikut:
 
 - Gunakan `#` untuk judul utama, `##` untuk sub-judul, `###` untuk sub-sub-judul
 - Gunakan tabel dengan format markdown standar untuk statistik, daftar jemaat, dan keuangan
-[baru]
-- Kode nyanyian dan ayat alkitab menyesuaikan dengan kode yang dijelaskan diatas. pastikan ada line break / spasi kosong dibawah lagu agar format dokumen tidak rusak
+- [baru] Kode nyanyian dan ayat alkitab menyesuaikan dengan kode yang dijelaskan diatas. pastikan ada line break / spasi kosong dibawah lagu agar format dokumen tidak rusak
 
 ### Menjalankan di Komputer Lokal
 
