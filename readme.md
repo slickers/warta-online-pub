@@ -28,16 +28,24 @@ Demo aplikasi dapat dilihat di [tautan berikut ini](https://gkpibdl.mctm.web.id/
 
 ```
 warta-online-pub/
-├── css/                 # File CSS untuk tampilan website
-├── js/                  # File JavaScript untuk fungsi website
-│   └── app.js           # Kode utama aplikasi
-├── markdown/            # Folder berisi file warta dalam format markdown
-│   └── 20250518.md      # Contoh file warta (dalam format YYYYMMDD.md)
-├── scripts/             # Script pendukung
-│   └── update-markdown-list.js  # Script untuk memperbarui daftar warta
-├── index.html           # Halaman utama website
-├── markdown-list.json   # Daftar file warta yang tersedia
-└── readme.md            # Dokumentasi (file ini)
+├── css/                             # File CSS untuk tampilan website
+├── js/                              # File JavaScript untuk fungsi website
+│   └── app.js                       # Kode utama aplikasi
+├── markdown/                        # Folder berisi file warta dalam format markdown
+│   └── 20250518_siteNAME_Time.md    # Contoh file warta (dalam format YYYYMMDD.md)
+│   └── bible/                       # Folder file alkitab
+│   │ └── PB/                        # Perjanjian Baru
+│   │ └── PL/                        # Perjanjian Lama
+│   └─── songs/                      # Folder lirik lagu
+│     └── KJ/                        # Kidung Jemaat
+│     └── NKB/                       # Nyanyian Kidung Baru
+│     └── PKJ/                       # Pelengkap Kidung Jemaat
+│     └── Rohani/                    # Lagu Rohani Lainnya
+├── scripts/                         # Script pendukung
+│   └── update-markdown-list.js      # Script untuk memperbarui daftar warta
+├── index.html                       # Halaman utama website
+├── markdown-list.json               # Daftar file warta yang tersedia
+└── readme.md                        # Dokumentasi (file ini)
 ```
 
 ## Cara Penggunaan
@@ -55,9 +63,17 @@ Atau, Anda dapat mendownload sebagai ZIP dan mengekstraknya ke folder pilihan An
 
 ### Membuat Warta Baru
 
-1. **Buat file markdown baru** dengan format nama `YYYYMMDD.md` (tahun, bulan, tanggal) di folder `markdown/`. Misalnya: `20250525.md` untuk warta tanggal 25 Mei 2025.
+1. **Buat file markdown baru** dengan format nama `YYYMMDD_siteNAME_Time.md` (tahun, bulan, tanggal) di folder `markdown/`. Misalnya:
+   - `20250525_Enggano_Pagi.md` untuk warta tanggal 25 Mei 2025 di gereja Enggano untuk sesi Pagi.
+   - `20250525_Melur_Sore.md` untuk warta tanggal 25 Mei 2025 di gereja Melur untuk sesi Sore.
+   - `20250525_PKP_1800.md` untuk warta tanggal 25 Mei 2025 di kegiatan PKP untuk jam 18:00.
+   penamaan Enggano, Melur, Pagi, Sore, PKP, PKB, PKW, DLL bisa dilihat di js/app.js, di line 332 dan 528:
+       const ibadahMingguMatch = filename.match(/^(\d{4})(\d{2})(\d{2})_(Enggano|Melur)_(Pagi|Sore)\.md$/);
+       const kebaktianKelompokMatch = filename.match(/^(\d{4})(\d{2})(\d{2})_([a-zA-Z0-9]+)_(\d{4})\.md$/);
+   untuk custom order warta/tata ibadah di index html bisa diatur di js/app.js, line 301:
+       const order = ['Enggano_Pagi', 'Enggano_Sore', 'Melur_Pagi', 'Melur_Sore', 'PKP', 'Kelompok']; 
 
-2. **Salin template** dari file `20250518.md` yang sudah ada dan modifikasi sesuai kebutuhan.
+2. **Salin template** dari file `20250518_Enggano_Pagi.md` yang sudah ada dan modifikasi sesuai kebutuhan.
 
 3. **Isi bagian-bagian warta** dengan informasi yang sesuai:
    - Tema ibadah
@@ -66,7 +82,13 @@ Atau, Anda dapat mendownload sebagai ZIP dan mengekstraknya ke folder pilihan An
    - Statistik kehadiran
    - Pengumuman-pengumuman
    - Keuangan
-
+   **Untuk format lagu dan bible :**
+      Kidung Jemaat 1, semua ayat = [SONG:KJ/KJ_1]
+      Kidung Jemaat 2, ayat 1 dan 3 = [SONG:KJ/KJ_2:1,3] bila ada reff nya, maka format = [SONG:KJ/KJ_2:1,Reff,3,Reff]
+      (atau **ubah file lagu md sehingga tiap ayat memiliki reff nya sendiri2**), sehingga format = [SONG:KJ/KJ_2:1,3]
+      Matius 1 ayat 10 = [BIBLE:PB/Matius_1:10]
+      Kejadian 1 ayat 5 sampai 16 = [BIBLE:PL/Kejadian_1:5-16]
+   **Pastikan ada line break (baris kosong) dibawah setiap format lagu/bible.**   
 4. **Update daftar warta** dengan menjalankan script `update-markdown-list.js`:
    ```
    node scripts/update-markdown-list.js
@@ -149,3 +171,4 @@ Sesuaikan file template warta sesuai kebutuhan gereja Anda, dengan mengubah:
 ## Lisensi
 
 Dibuat oleh Martin Manullang. Bebas digunakan dan dimodifikasi untuk keperluan gereja.
+Fork oleh Yopianus Linga / @slickers untuk penambahan fitur dan tampilan.
