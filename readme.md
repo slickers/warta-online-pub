@@ -177,14 +177,14 @@ Sesuaikan file template warta sesuai kebutuhan gereja Anda, dengan mengubah:
 Dibuat oleh Martin Manullang. Bebas digunakan dan dimodifikasi untuk keperluan gereja.
 Fork oleh Yopianus Linga / @slickers untuk penambahan fitur dan tampilan.
 
-- Web / Mobile View
+- Web / Mobile View<br>
 ![Web Display](web_display.png)
 
-- Lirik
+- Lirik<br>
 ![Lirik Preview](lirik.png)
 
-- Alkitab
+- Alkitab<br>
 ![Bible Preview](bible.png)
 
-- Kode
+- Kode<br>
 ![Codes Preview](codes.png)
