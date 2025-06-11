@@ -104,8 +104,9 @@ untuk custom order warta/tata ibadah di index html bisa diatur di js/app.js, lin
 File markdown mendukung format berikut:
 
 - Gunakan `#` untuk judul utama, `##` untuk sub-judul, `###` untuk sub-sub-judul
-- Gunakan blok kode (diapit dengan ``` di awal dan akhir) untuk lirik nyanyian atau ayat Alkitab, yang akan ditampilkan dengan tombol tampil/sembunyikan
 - Gunakan tabel dengan format markdown standar untuk statistik, daftar jemaat, dan keuangan
+[baru]
+- Kode nyanyian dan ayat alkitab menyesuaikan dengan kode yang dijelaskan diatas. pastikan ada line break / spasi kosong dibawah lagu agar format dokumen tidak rusak
 
 ### Menjalankan di Komputer Lokal
 
